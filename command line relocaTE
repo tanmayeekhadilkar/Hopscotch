@@ -1,0 +1,7 @@
+#If you have a multi-node cluster you can speed up your RelocaTE run by dividing your fastq files into many smaller files. Dividing your reads files into many files of 1 million reads is a nice way to improve the speed of the analysis. A script included in the package can be used to do this. It is called fastq_split.pl.
+
+./fastq_split -s 1_000_000 -o split_fq ~/fq_dir/*fq
+
+#relocaTE options
+
+./relocaTE.pl -t | --te_fasta Str -d | --fq_dir Str -g | --genome_fasta Str -e | --exper Str -o | --outdir Str -1 | --mate_1_id Str -2 | --mate_2_id Str -u | --unpaired_id Str -p | --parallel 0|1 -a | --qsub_array 0|1 -w | --workingdir ./home/tmkhadil/projects/hopscotch -l | --len_cutoff n -bm | --blat_minScore 
