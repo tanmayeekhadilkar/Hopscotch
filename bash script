@@ -8,7 +8,7 @@ set -e
 set -u
 
 # dividing fastq files into many smaller files
-./fastq_split -o /home/tmkhadil/projects/hopscotch/fqfiles /home/tmkhadil/projects/hopscotch/maize_genome.fa
+./fastq_split -o /home/tmkhadil/projects/hopscotch/fqfiles #followed by fq files to be split
 
 #relocaTE options
 ./relocaTE.pl -t | --te_fasta hopscotch.fa -d | --fq_dir /home/tmkhadil/projects/hopscotch/fqfiles -g | --genome_fasta maize_genome.fa -e | --exper sample_id -o | --outdir relocaTE_ouput -1 | --mate_1_id _p1 -2 | --mate_2_id _p2 -u | --unpaired_id .unpaired -p | --parallel 1 -a | --qsub_array 1 -w | --workingdir /home/tmkhadil/projects/hopscotch -l | --len_cutoff 10 -bm | --blat_minScore 10 -m | --mismatch 0.1 -bt | --blat_tileSize 11 -f | --flanking_seq_len 100 -r 1
