@@ -1,6 +1,12 @@
 #!/bin/bash -login
 ## make sure to put the proper SLURM headers here! 
-## we can go through and make sure those work
+#SBATCH -D /home/tmkhadil/projects/hopscotch/
+#SBATCH -o /home/tmkhadil/projects/hopscotch/slurm-log/findTE-stdout-%j.txt
+#SBATCH -e /home/tmkhadil/projects/hopscotch/slurm-log/findTE-stderr-%j.txt
+#SBATCH -J findTE
+#SBATCH -t 24:00:00
+set -e
+set -u
 
 ## there are various modules available on FARM
 ## these are programs installed that can be used by all users
