@@ -19,11 +19,10 @@ module load sratoolkit
 SRRNUM=SRR447883
 
 ## this will start the download, and tell the sratoolkit where to look for files
-prefetch $SRRNUM
+~/software/sratoolkit.2.8.1-2-ubuntu64/bin/prefetch $SRRNUM
 
 ## this will split the .sra file into two fastq files (for paired end sequencing)
-fastq-dump --split-files -I ${SRRNUM}
-
+~/software/sratoolkit.2.8.1-2-ubuntu64/bin/fastq-dump --split-files -I ${SRRNUM}
 ## now we should have two files, SRRNUM_1.fastq and SRRNUM_2.fastq
 ## we can use these as input for relocaTE and other TE finding software
 
@@ -31,6 +30,6 @@ fastq-dump --split-files -I ${SRRNUM}
 ## then let's repeat it all for some more sequencing data of TIL01
 
 SRRNUM=SRR447882
-prefetch $SRRNUM
-fastq-dump --split-files -I ${SRRNUM}
+~/software/sratoolkit.2.8.1-2-ubuntu64/bin/prefetch $SRRNUM
+~/software/sratoolkit.2.8.1-2-ubuntu64/bin/fastq-dump --split-files -I ${SRRNUM}
 
