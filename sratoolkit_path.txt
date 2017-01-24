@@ -1,0 +1,2 @@
+sratoolkit.2.8.1-2-ubuntu64/bin/prefetch
+sratoolkit.2.8.1-2-ubuntu64/bin/fastq-dump
