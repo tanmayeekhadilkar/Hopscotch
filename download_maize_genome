@@ -8,7 +8,8 @@ set -e
 set -u
 
 wget ftp://ftp.ensemblgenomes.org/pub/plants/release-33/fasta/zea_mays/dna/Zea_mays.AGPv4.dna.toplevel.fa.gz
-tar -xvzf Zea_mays.AGPv4.dna.toplevel.fa.gz
+#tar -xvzf Zea_mays.AGPv4.dna.toplevel.fa.gz
+gunzip Zea_mays.AGPv4.dna.toplevel.fa.gz
 
 OR
 
@@ -43,3 +44,9 @@ tar -xvzf Zea_mays.AGPv4.dna.chromosome.8.fa.gz
 
 wget ftp://ftp.ensemblgenomes.org/pub/plants/release-33/fasta/zea_mays/dna/Zea_mays.AGPv4.dna.chromosome.9.fa.gz
 tar -xvzf Zea_mays.AGPv4.dna.chromosome.9.fa.gz
+
+
+### concatenate all the unzipped fastas
+cat Zea_mays.AGPv4.dna.chromosome*.fa > Zea_mays.AGPv4.dna.ALLchromosome.fa
+### remove all the individual chromosome files
+rm Zea_mays.AGPv4.dna.chromosome*.fa
