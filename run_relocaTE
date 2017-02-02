@@ -1,0 +1,14 @@
+#!/bin/bash -l
+#SBATCH -D /home/tmkhadil/projects/Hopscotch/
+#SBATCH -o /home/tmkhadil/projects/Hopscotch/slurm-log/findTE-stdout-%j.txt
+#SBATCH -e /home/tmkhadil/projects/Hopscotch/slurm-log/findTE-stderr-%j.txt
+#SBATCH -J findTE
+#SBATCH -t 24:00:00
+set -e
+set -u
+
+# dividing fastq files into many smaller files
+~/software/RelocaTE/scripts/fastq_split.pl -o /home/tmkhadil/projects/Hopscotch/fqfiles SRR447882_2.fastq SRR447883_1.fastq SRR447883_2.fastq SRR447882_1.fastq
+
+#relocaTE options
+~/software/RelocaTE/scripts/relocaTE.pl -t hopscotch.fa -d /home/tmkhadil/projects/Hopscotch/fqfiles -g Zea_mays.AGPv4.dna.toplevel.fa -e sample_id -o relocaTE_ouput -1 _1 -2 _2 -p 0 -a 0 -w /home/tmkhadil/projects/Hopscotch -l 10 -bm 10 -m 0.1 -bt 11 -f 100 -r 1
