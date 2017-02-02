@@ -11,7 +11,7 @@ wget ftp://ftp.ensemblgenomes.org/pub/plants/release-33/fasta/zea_mays/dna/Zea_m
 #tar -xvzf Zea_mays.AGPv4.dna.toplevel.fa.gz
 gunzip Zea_mays.AGPv4.dna.toplevel.fa.gz
 
-OR
+###OR
 
 cd /home/tmkhadil/projects/Hopscotch/maize_genome
 
