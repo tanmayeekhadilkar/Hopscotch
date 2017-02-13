@@ -8,6 +8,7 @@ set -e
 set -u
 
 module load blat
+module load samtools/1.2
 
 # dividing fastq files into many smaller files
 ~/software/RelocaTE/scripts/fastq_split.pl -o /home/tmkhadil/projects/Hopscotch/fqfiles SRR447882_2.fastq SRR447883_1.fastq SRR447883_2.fastq SRR447882_1.fastq
