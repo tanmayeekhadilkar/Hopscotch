@@ -18,9 +18,9 @@ export CHR=$(( ( RANDOM % 10 )  + 1 ))   ## this is picking a random number betw
 ##!!!! this needs to be done! one way it could be done would be to make a file or array with each chromosome, and then make the max random number the chromosome length of the selected chromsome.
 
 ## chrsize is decided by the following logic
-## there are size files with file name format <chromosomenumber>.CHR.SIZE for each chromosome which contain the sizes of each chromosome, i dont know the size of each chromosome but when I find that out I can put in those values into the files
+## there are size files with file name format <chromosomenumber>.CHR.SIZE.txt for each chromosome which contain the sizes of each chromosome, i dont know the size of each chromosome but when I find that out I can put in those values into the files
 
-export CHRSIZE=$( cat $CHR.CHR.SIZE )
+export CHRSIZE=$( cat $CHR.CHR.SIZE.txt )
 
 POSITION=$(( ( RANDOM % CHRSIZE ) + 1 )) ## want to make this so that it can't be longer than the chromsome length
 
