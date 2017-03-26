@@ -5,10 +5,12 @@
 
 ##### pick a random region of the genome
 
-CHR=$(( ( RANDOM % 10 )  + 1 ))   ## this is picking a random number between 1 and 10
-
+export CHR=$(( ( RANDOM % 10 )  + 1 ))   ## this is picking a random number between 1 and 10
+## chrsize is decided by following logic
+## there are size files with file name format <chromosomenumber>.CHR.SIZE for each chromosome which contain the sizes of each chromosome
+export CHRSIZE=$( cat $CHR.CHR.SIZE )
 ##!!!! this needs to be done! one way it could be done would be to make a file or array with each chromosome, and then make the max random number the chromosome length of the selected chromsome.
-POSITION=  ## want to make this so that it can't be longer than the chromsome length
+POSITION=$(( ( RANDOM %  $CHRSIZE )  + 1 )) ## want to make this so that it can't be longer than the chromsome length
 
 ##### get two halves of the sequence, so we can put hopscotch in the middle, with a TSD
 
