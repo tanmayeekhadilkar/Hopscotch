@@ -27,14 +27,14 @@ POSITION=$(( ( RANDOM % CHRSIZE ) + 1 )) ## want to make this so that it can't b
 ##### get two halves of the sequence, so we can put hopscotch in the middle, with a TSD
 
 LEFTFLANKSTART=$POSITION
-LEFTFLANKEND=$POSITION+505  ### TSD is 5 bp
-RIGHTFLANKSTART=$POSITION+500   
-RIGHTFLANKEND=$POSITION+1000
+LEFTFLANKEND=$(expr $POSITION + 505)  ### TSD is 5 bp
+RIGHTFLANKSTART=$(expr $POSITION+500)
+RIGHTFLANKEND=$(expr $POSITION+1000)
 
 echo $RIGHTFLANKSTART   ## this should be where the TE insertion is called by relocaTE
 
 ##### samtools faidx can be used to get regions of chromosomes
-samtools faidx referencegenome.fa
+samtools faidx Zea_mays.AGPv4.dna.toplevel.fa
 samtools faidx referencegenome.fa ${CHR}:$LEFTFLANKSTART-$LEFTFLANKEND > upstream_ins.fa
 samtools faidx referencegenome.fa ${CHR}:$RIGHTFLANKSTART-$RIGHTFLANKEND > downstream_ins.fa
 
@@ -51,6 +51,7 @@ tail -n+1 downstream_ins.fa >> simulated_hopscotch_$CHR_$RIGHTFLANKSTART.fa
 
 ## no errors, fragment length 400, stdev=100, 2thousand reads, 100bp for and rev, pi 0.002, all SNPs (no indel), fixed seed
 wgsim -e 0 -d 400 -s 100 -N 2000 -1 100 -2 100 -r 0.002 -R 0 -S 1234 simulated_hopscotch_$CHR_$RIGHTFLANKSTART.fa simulated_hopscotch_$CHR_$RIGHTFLANKSTART.r1.fq simulated_hopscotch_$CHR_$RIGHTFLANKSTART.r2.fq 
+##here it throws up an error message that /path/to/wgsim does not exist, is samtools downloaded???
 
 ##### could repeat this in a for loop or something to get 10 simulated insertions
 
