@@ -50,8 +50,8 @@ tail -n+1 downstream_ins.fa >> simulated_hopscotch_$CHR_$RIGHTFLANKSTART.fa
 ## may need to install wgsim https://github.com/lh3/wgsim
 
 ## no errors, fragment length 400, stdev=100, 2thousand reads, 100bp for and rev, pi 0.002, all SNPs (no indel), fixed seed
-wgsim -e 0 -d 400 -s 100 -N 2000 -1 100 -2 100 -r 0.002 -R 0 -S 1234 simulated_hopscotch_$CHR_$RIGHTFLANKSTART.fa simulated_hopscotch_$CHR_$RIGHTFLANKSTART.r1.fq simulated_hopscotch_$CHR_$RIGHTFLANKSTART.r2.fq 
-##here it throws up an error message that /path/to/wgsim does not exist, is samtools downloaded???
+/home/mstitzer/software/wgsim/wgsim -e 0 -d 400 -s 100 -N 2000 -1 100 -2 100 -r 0.002 -R 0 -S 1234 simulated_hopscotch_$CHR_$RIGHTFLANKSTART.fa simulated_hopscotch_$CHR_$RIGHTFLANKSTART.r1.fq simulated_hopscotch_$CHR_$RIGHTFLANKSTART.r2.fq 
+
 
 ##### could repeat this in a for loop or something to get 10 simulated insertions
 
