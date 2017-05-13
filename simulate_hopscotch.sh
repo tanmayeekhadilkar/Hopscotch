@@ -27,7 +27,7 @@ POSITION=$(( ( RANDOM % CHRSIZE ) + 1 )) ## want to make this so that it can't b
 ##### get two halves of the sequence, so we can put hopscotch in the middle, with a TSD
 
 LEFTFLANKSTART=$POSITION
-LEFTFLANKEND=$(expr $POSITION + 505)  ### TSD is 5 bp
+LEFTFLANKEND=$(expr $LEFTFLANKSTART + 505)  ### TSD is 5 bp
 RIGHTFLANKSTART=$(expr $POSITION+500)
 RIGHTFLANKEND=$(expr $POSITION+1000)
 
