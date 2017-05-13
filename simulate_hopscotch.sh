@@ -28,15 +28,15 @@ POSITION=$(( ( RANDOM % CHRSIZE ) + 1 )) ## want to make this so that it can't b
 
 LEFTFLANKSTART=$POSITION
 LEFTFLANKEND=$(expr $LEFTFLANKSTART + 505)  ### TSD is 5 bp
-RIGHTFLANKSTART=$(expr $POSITION+500)
-RIGHTFLANKEND=$(expr $POSITION+1000)
+RIGHTFLANKSTART=$(expr $POSITION + 500)
+RIGHTFLANKEND=$(expr $POSITION + 1000)
 
 echo $RIGHTFLANKSTART   ## this should be where the TE insertion is called by relocaTE
 
 ##### samtools faidx can be used to get regions of chromosomes
 samtools faidx Zea_mays.AGPv4.dna.toplevel.fa
-samtools faidx referencegenome.fa ${CHR}:$LEFTFLANKSTART-$LEFTFLANKEND > upstream_ins.fa
-samtools faidx referencegenome.fa ${CHR}:$RIGHTFLANKSTART-$RIGHTFLANKEND > downstream_ins.fa
+samtools faidx Zea_mays.AGPv4.dna.toplevel.fa ${CHR}:$LEFTFLANKSTART-$LEFTFLANKEND > upstream_ins.fa
+samtools faidx Zea_mays.AGPv4.dna.toplevel.fa ${CHR}:$RIGHTFLANKSTART-$RIGHTFLANKEND > downstream_ins.fa
 
 
 ##### combine up, down, and hopscotch
